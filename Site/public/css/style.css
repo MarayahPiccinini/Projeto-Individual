@@ -62,6 +62,7 @@ height: 225px;
 font-size: 50px;
 font-weight: bold;
 margin-top: 40px;
+color: white;
 }
 
 .parte1{
@@ -88,6 +89,7 @@ align-items: center;
     margin-left: 5%;
     font-size: 25px;
     font-weight: bold;
+    color: white;
 
 }
 .textoDireita img{
