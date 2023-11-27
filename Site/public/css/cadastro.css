@@ -67,3 +67,13 @@ input{
 input::placeholder{
     color: rgba(255, 255, 255, 0.792);
 }
+.button_cadastrar button{
+  border: 2px solid rgba(255, 255, 255, 0.253);
+background-color: rgba(255, 255, 255, 0.679);
+padding: 8px 15px;
+border-radius: 24px;
+width: 140px;
+height: 40px;
+font-size: 20px;
+margin-top: 10px;
+}
