@@ -39,9 +39,14 @@
     var confirmacaoSenhaVar = confirmacao_senha_input.value;
     if (
       nomeVar == "" ||
+      nomeVar.length<1 ||
       emailVar == "" ||
+      emailVar.indexof("@") == -1||
+      emailVar.indexof(".") == -1||
       senhaVar == "" ||
-      confirmacaoSenhaVar == ""
+      senhaVar.length<6||
+      confirmacaoSenhaVar == ""||
+      confirmacaoSenhaVar != senhaVar
     ) {alert("Erro no Cadastro")
 
       return false;
