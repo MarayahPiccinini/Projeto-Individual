@@ -1,3 +1,6 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap');
+
 * {
   padding: 0;
   margin: 0;
@@ -104,7 +107,11 @@ margin-top: 8px;
   justify-content: center;
   align-items: center;
 }
-.que
+.question{
+  font-size: 50px;
+ 
+  
+}
 /* #musica {
   width: 80px;
 } */
