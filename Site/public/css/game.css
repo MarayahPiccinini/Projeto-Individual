@@ -40,7 +40,7 @@ align-items: center;
 gap: 24px;
 }
 .Question{
-    width: 100%;
+    width: 50%;
 font-size: 24px;
 font-weight: 600;
 text-align: center;
@@ -95,3 +95,13 @@ margin-top: 8px;
   background-color: #a1010a;
 }
 
+
+
+.container_header {
+  width: 100%;
+  display: flex;
+}
+
+#musica {
+  width: 80px;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <link rel="stylesheet" href="./css/dashboard.css">
+  </head>
+  <body>
+    
+    <section>
+      <h1>Métricas da Partida</h1>
+      <canvas id="tabela1" style="width: 100%; max-width: 700px"></canvas>
+    
+    
+    <div class="textinho" id="textinho"></div>
+    <div class="botao">
+      <button onclick="voltar()">Refazer Teste</button>
+
+    </div>
+  </section>
+  </body>
+</html>
+
+<script>
+  const EixoX = ["Acertos", "Erros"];
+  const EixoY = [4, 1];
+  var qtdAcertos = 0;
+  var grafico = new Chart("tabela1", {
+    type: "pie",
+    data: {
+      labels: EixoX,
+      datasets: [
+        {
+          label: "Umidade",
+          fill: false,
+          lineTension: 0,
+          backgroundColor: [
+            "#f7768e",
+            "#d886a4",
+            "#b995b9",
+            "#9aa5ce",
+            "#CFC9C2",
+          ],
+          data: EixoY,
+        },
+      ],
+    },
+    options: {
+      legend: {
+    
+        display: true,
+        labels: {
+        fontColor: "#333",
+        fontSize: 20, 
+      },
+      },
+    },
+  });
+  fetch(`/dashboard/obterDados/${sessionStorage.ID_USUARIO}`, {})
+    .then((resposta) => {
+      console.log(resposta);
+      if (resposta.ok) {
+        // console.log(resposta);
+
+        resposta.json().then((json) => {
+          console.log(json);
+          qtdAcertos =
+            json[0].question1 +
+            json[0].question2 +
+            json[0].question3 +
+            json[0].question4 +
+            json[0].question5;
+          console.log(qtdAcertos);
+          grafico.data.datasets[0].data = [qtdAcertos, 5 - qtdAcertos];
+          grafico.update();
+        });
+      } else {
+        console.log("Houve um erro ao tentar realizar o login!");
+      }
+    })
+    .catch(function (erro) {
+      console.log(erro);
+    });
+
+  setInterval(() => {
+    const performance = parseInt((qtdAcertos * 100) / 5);
+
+    let message = "";
+    switch (true) {
+      case performance >= 90:
+        message = "Você é bom mesmo!";
+        break;
+      case performance >= 70:
+        message = "É...ta sabendo bastante";
+        break;
+      case performance >= 50:
+        message = "Você precisa escutar mais música";
+        break;
+      default:
+        message = "Ta ruizinho";
+    }
+    textinho.innerHTML = `<p class="final-message">
+    Você acertou ${qtdAcertos} de 5 questões!
+    <span><br> Resultado: ${message}</span>
+    </p>
+    `;
+  }, 100);
+  function voltar() {
+    window.location = "jogo.html";
+  }
+</script>

@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Quiz Musical</title>
     <link rel="stylesheet" href="./css/game.css" />
-    <script src="./js/jogo.js" async></script>
+ 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
   </head>
-  <body>
-    <div class="container">
+  <body> 
+    
+    <audio class="audio-player" src="./assets/Audio/Emicida - AmarElo (Sample Sujeito de Sorte) part Pabllo Vittar, Majur e Thiago Jamelão (Lyric Video).mp3" type="audio/mp3"></audio>
+    <div  id="container" class="container">
       <div class="questions_container hide">
-        <div class="question">
-          <span>Pergunta aqui  </span>
-        </div>
-        <div class="musica">
-          
+        <div class="container_header">
+          <div class="question">
+            <span>Pergunta aqui  </span>
+          </div>
+          <div id="musica">
+          </div>
         </div>
         <div class="answers_container">
           <button class="answers button">Resposta 1</button>
@@ -24,9 +28,10 @@
         </div>
       </div>
       <div class="controls_container">
-        <button class="start_quiz button">Começar Quiz!</button>
+        <button class="start_quiz button" >Começar Quiz!</button>
         <button class="next_question button hide">Próxima Pergunta</button>
       </div>
     </div>
   </body>
 </html>
+<script src="./js/jogo.js" async></script>

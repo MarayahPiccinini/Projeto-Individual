@@ -4,95 +4,125 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
-    <div>
+    <div class="englobaHeader">
       <header>
-        <a href="logo"><img src="assets/img/logo certo.png" /></a>
-        <a href="">Artistas</a>
-        <a href="">Top 10</a>
-        <a href="./Cadastro.html"><button>Cadastre-se</button></a>
-        <a href="./Login.html"><button>Login</button></a>
-      </header>
-      <main>
-        <section class="sesao1">
-          <span>Faça login e acesse nosso mini-game</span>
-          <div><h1>MAY INTENTIONS</h1></div>
-        </section>
-        <section class="sesao2">
-          <div>
-            <h2>O Brasil e a revolta em forma de Música</h2>
-            <span
-              >Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-              Voluptatibus aut cupiditate temporibus sit provident asperiores
-              consectetur, earum consequatur vero
-            </span>
+        <div class="container">
+          <div class="logo">
+            <img src="assets/img/logoCerto.png" alt="" />
           </div>
-          <div><img src="assets/img/img 2 section.png" /></div>
-        </section><div>
-        <div class="slider">
-</div>
-
-</div>
-</div>
-      </main>
+        </div>
+        <div class="ancoras">
+          <a href="#top10">Top 10</a>
+          <a href="Cadastro.html">Cadastre-se</a>
+          <a href="./Login.html">Login</a>
+        </div>
+      </header>
     </div>
-    <div id="div_text"></div>
+    <main>
+      <div class="fundo">
+        <!-- <img
+          style="height: 100%; width: 100%"
+          src="assets/img/MayIntentions.png"
+        /> -->
+      </div>
+    </main>
+    <section class="parte1">
+      <div class="titulo1">
+        <span>O Brasil e a crítica em forma de<br />música</span>
+      </div>
+      <div class="textoDireita">
+        <p>
+          O Brasil desde o período de ditadura representa sua revolta em forma
+          de música, tendo sempre em vista grandes críticas. Com a grande
+          revolução musical que vem acontecendo nos últimos tempos, e em
+          admiração a todas esses movimentos sociais em Prol da igualdade de
+          Gênero, diminuição da desigualdade social, paz e justiça, 
+          criei esse site
+          para expor algumas música que trazem grandes
+          reflexões da nossa sociedade.
+        </p>
+        <img src="assets/img/imgL.png" />
+      </div>
+    </section>
+    <section  id="top10" class="textoArtistas">
+      <div class="titulo1">
+        <span style="margin: 0">Meu top 10 Músicas com críticas sociais</span>
+        <div id="botaotop" class="botao">
+          <button
+            onclick="botaoTop()"
+            style="font-size: 25px; font-weight: bold">
+            Ver top 10
+          </button>
+        </div>
+      </div>
+      <div class="musicas">
+        <div id="musicas" class="Artistas"></div>
+        <div id="qr" class="QR"><img  src="assets/img/qrCode.png" ></div>
+      </div>
+    </section>
+    <section><div class="parteFinal">
+      <h2>Caso tenha ficado curioso... <br>
+       <a href="./Cadastro.html"><button>Cadastre-se</button></a>
+      </h2>
+    </div>
+    </section>
   </body>
 </html>
 <script>
-  var nome = sessionStorage.NOME_USUARIO;
-  function Top() {
-    div_text.innerHTML = `<section>
-        <div>
-          <h2>10<hH2>
-            </div>
-            </section>
-            <section>
-              <div>
-                <H2>9</H2>
-                </div>
-                </section>
-                <section>
-                  <div>
-                    <H2>8</H2>
-          </div>
-        </section>
-        <section>
-          <div>
-            <H2>7</H2>
-          </div>
-        </section>
-        <section>
-          <div>
-            <H2>6</H2>
-          </div>
-        </section>
-        <section>
-          <div>
-            <H2>5</H2>
-          </div>
-        </section>
-        <section>
-          <div>
-            <H2>4</H2>
-          </div>
-        </section>
-        <section>
-          <div>
-            <H2>3</H2>
-          </div>
-        </section>
-        <section>
-          <div>
-            <H2>2</H2>
-          </div>
-        </section>
-        <section>
-          <div>
-            <H2>1</H2>
-          </div>
-        </section>`;
+ 
+  ListaDeCantores = [
+    "Negra Li",
+    "Racionais",
+    "Pitty",
+    "Djonga",
+    "MvBill",
+    "MvBill",
+    "Djonga",
+    "Rincon Sapiência",
+    "Emicida",
+    "Emicida",
+  ];
+
+  ListaDeMusicas = [
+    "Brasilândia",
+    "Nego drama",
+    "Desconstruindo Amélia",
+    "Olho de Tigre",
+    "O Soldado que fica",
+    "Traficando informações",
+    "julho de 94",
+    "Ponta de Lança",
+    "Levanta e Anda",
+    "Amarelo",
+  ];
+  ListaDeCantores.reverse();
+  ListaDeMusicas.reverse();
+  function botaoTop() {
+    musicas.innerHTML = ``
+    var qrcode = document.getElementById("qr")
+    qrcode.style = 'display: block;'
+    for (contador = 0; contador < ListaDeCantores.length; contador++) {
+      musicas.innerHTML += `${contador + 1}-${ListaDeCantores[contador]}-${
+        ListaDeMusicas[contador]
+      }<br><br>`;
+    } 
+   
+     
   }
 </script>
+<!-- Amarelo-Emicida
+Levanta e Anda - Emicida
+julho de 94-Donga
+O Soldado que fica-Mv Bill
+Traficando informações-Mv Bill
+Olho de Tigre-Djonga
+Desconstruindo Amélia-Pitty
+Nego Drama- Racionais
+Brasilândia-Negra Li
+Rincon Sapiência-Ponta de Lança
+
+
+ -->

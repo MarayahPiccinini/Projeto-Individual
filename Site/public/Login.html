@@ -60,15 +60,16 @@
         if (resposta.ok) {
           console.log(resposta);
 
-          resposta.json().then((json) => {
+          resposta.json().then(json => {
             console.log(json);
             console.log(JSON.stringify(json));
+            console.log(json.nomeUsuario)
             sessionStorage.EMAIL_USUARIO = json.email;
             sessionStorage.NOME_USUARIO = json.nome;
             sessionStorage.ID_USUARIO = json.id;
 
             setTimeout(function () {
-              alert("Usuario Logado"); // window.location = "./";
+               window.location = "./jogo.html";
             }, 1000); // apenas para exibir o loading
           });
         } else {
